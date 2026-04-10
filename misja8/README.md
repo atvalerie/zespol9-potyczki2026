@@ -1,1 +1,1 @@
-Zrobiłem nowy namespace taki jak w configu, zaimportowałem go i ogarnąłem RBAC. Wszystkie zmiany w diffie pliku pendrive są.
+Zrobiłem nowy namespace taki jak w configu, zaimportowałem go i ogarnąłem RBAC. Wszystkie zmiany w [diffie](https://github.com/atvalerie/zespol9-potyczki2026/commit/bd54f0fcd1c9716e28ab600ac68f59d15a515940) pliku pendrive są.
