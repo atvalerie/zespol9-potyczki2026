@@ -63,3 +63,12 @@ Ustawiono zasoby na 128 Mi RAMu oraz 150mCPU
 
 ### Misja 7:
 
+Utworzona klasa o nazwie `krzak-longhorn-retain` z polityką `Retain`
+![StorageClass](misja7/1.png)
+
+Utworzony namespace `klienci-premium`
+![Namespace](misja7/2.png)
+
+Stworzony serwis dla StatefulSet
+![Cluster IP](misja7/3.png)
+
