@@ -9,6 +9,32 @@ metadata:
   name: wiesio-admin
   namespace: panel-kierownictwa
 ---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: wiesio-admin-binding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: wiesio-admin
+  namespace: panel-kierownictwa
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: wiesio-admin-node-reader
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: node-reader
+subjects:
+- kind: ServiceAccount
+  name: wiesio-admin
+  namespace: panel-kierownictwa
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -36,7 +62,13 @@ spec:
         - containerPort: 80
         livenessProbe:
           httpGet:
-            path: /healthz
+            path: /
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /
             port: 80
           initialDelaySeconds: 2
-          periodSeconds: 2
+          periodSeconds: 5
